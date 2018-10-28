@@ -1,8 +1,8 @@
 TARGET=Test
-LIBS=-lboost_thread -lboost_system -lrt -lpthread
+LIBS=-lpthread
 CC=g++
-CFLAGS=-std=c++11 -g -Wall
-CFLAGS=-std=c++11 -g -Wall -O3
+#CFLAGS=-std=c++17 -g -Wall
+CFLAGS=-std=c++17 -Wall -O3 -I /apps/tools/cent_os72/thirdparty/boost/boost_1_64_0/include/
 
 .PHONY: default all clean
 
