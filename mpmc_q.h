@@ -110,15 +110,14 @@ public:
 		alignas(alignof(T)) std::atomic<uint64_t>   m_enq_pos;
 		alignas(alignof(T)) char x1; // shadow false sharing
 		alignas(alignof(T)) std::atomic<uint64_t>   m_deq_pos;
-		//alignas(alignof(T)) char x2; // shadow false sharing
+		alignas(alignof(T)) char x2; // shadow false sharing?
 	};
 
 private:
 	struct alignas(alignof(T)) Cell_t
 	{
+		std::atomic<bool>		m_done{false};
 		T						m_data;
-		alignas(alignof(T))std::atomic<bool>		m_done{false};
-
 	};
 
 	const uint64_t		m_q_pos_mask_;
